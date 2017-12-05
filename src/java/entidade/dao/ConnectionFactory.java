@@ -14,7 +14,7 @@ public class ConnectionFactory {
     private final static String DRIVER = "org.postgresql.Driver";
     private final static String URL = "jdbc:postgresql://localhost:5432/farmacia";
     private final static String USERNAME = "postgres";
-    private final static String PASSWORD = "123456";
+    private final static String PASSWORD = "1234";
     
     public static Connection getConnection(){
         try {

@@ -43,14 +43,14 @@ public class ClienteDaoBd implements ClienteDao {
     }
 
     @Override
-    public void deletar(Cliente m) {
+    public void deletar(int codigo) {
         try {
             Connection conexao = ConnectionFactory.getConnection();
 
             String sql = "DELETE FROM cliente WHERE codigo=?";
 
             PreparedStatement comando = conexao.prepareStatement(sql);
-            comando.setInt(1, m.getCodigo());
+            comando.setInt(1, codigo);
 
             comando.executeUpdate();
 
@@ -73,12 +73,13 @@ public class ClienteDaoBd implements ClienteDao {
                     + "WHERE codigo=?";
 
             PreparedStatement comando = conexao.prepareStatement(sql);
-            comando.setString(1, m.getNome());
-            comando.setString(2, m.getCpf());
-            comando.setString(3, m.getEmail());
-            comando.setString(4, m.getEndereco());
-            comando.setString(5, m.getTelefone());
-            comando.setInt(6, m.getCodigo());            
+            comando.setInt(1, m.getCodigo()); 
+            comando.setString(2, m.getNome());
+            comando.setString(3, m.getCpf());
+            comando.setString(4, m.getEmail());
+            comando.setString(5, m.getEndereco());
+            comando.setString(6, m.getTelefone());
+                       
             
             comando.executeUpdate();
 
@@ -127,47 +128,50 @@ public class ClienteDaoBd implements ClienteDao {
         return null;
     }
 
-//    @Override
-//    public Cliente buscarPorId(int id) {
-//        try {
-//            Connection conexao = ConnectionFactory.getConnection();
-//
-//            //Passo 3 e 4: Comando
-//            String sql = "SELECT * FROM cliente WHERE id=?";
-//
-//            Cliente cliente = null;
-//
-//            PreparedStatement comando = conexao.prepareStatement(sql);
-//            comando.setInt(1, id);
-//
-//            ResultSet resultado = comando.executeQuery();
-//            if (resultado.next()) {
-//                String nome = resultado.getString("nome");
-//                String descricao = resultado.getString("descricao");
-//                String uso = resultado.getString("uso");
-//                cliente = new Cliente(id, nome, descricao, uso);
-//            }
-//
-//            //Passo 5: fechar conexao
-//            comando.close();
-//            conexao.close();
-//
-//            return cliente;
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ClienteDaoBd.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-//    }
+    @Override
+    public Cliente buscarPorId(int codigo) {
+        try {
+            Connection conexao = ConnectionFactory.getConnection();
+
+            //Passo 3 e 4: Comando
+            String sql = "SELECT * FROM cliente WHERE codigo=?";
+
+            Cliente cliente = null;
+
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1, codigo);
+
+            ResultSet resultado = comando.executeQuery();
+            if (resultado.next()) {
+                codigo = resultado.getInt("codigo");
+                String nome = resultado.getString("nome");                
+                String cpf = resultado.getString("cpf");
+                String email = resultado.getString("email");
+                String endereco = resultado.getString("endereco");
+                String telefone = resultado.getString("telefone");
+                cliente = new Cliente(codigo, nome, cpf, email, endereco, telefone);
+            }
+
+            //Passo 5: fechar conexao
+            comando.close();
+            conexao.close();
+
+            return cliente;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDaoBd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
 
 
 
  
-    @Override
-    public Cliente buscarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public Cliente buscarPorId(int id) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
   
 

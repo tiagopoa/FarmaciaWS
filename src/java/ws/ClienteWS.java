@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author 630610194
  */
-@Path("clientes")
+@Path("/clientes")
 public class ClienteWS {
 
     @Context
@@ -52,6 +52,7 @@ public class ClienteWS {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cliente> getCliente() {
         //return listaClientes;
+        //System.out.println("testeListar");
         return clienteDao.listar();        
     }
 
@@ -74,12 +75,17 @@ public class ClienteWS {
     }
     
     @DELETE
-    @Path("{codigo}")
+    @Path("/{codigo}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void removerCliente(@PathParam("codigo") int codigo, Cliente cliente) {
-        //System.out.println("TESTE");        
-        //this.codigo = codigo;
-        clienteDao.deletar(cliente);
+    public void removerCliente(@PathParam("codigo") int codigo) { 
+        clienteDao.deletar(codigo);
+    }
+    
+    @GET
+    @Path("{codigo}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void buscarPorCodigo(@PathParam("codigo") int codigo) {
+        clienteDao.buscarPorId(codigo);
     }
     
 }
