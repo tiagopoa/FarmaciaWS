@@ -64,21 +64,23 @@ public class ClienteDaoBd implements ClienteDao {
     }
 
     @Override
-    public void atualizar(Cliente m) {
+    public void atualizar(int codigo,Cliente m) {
         try {
             Connection conexao = ConnectionFactory.getConnection();
+            
+            System.out.println(codigo + " " + m.getNome() + " " + m.getCpf() + " " + m.getEmail() + " " + m.getEndereco() + " " + m.getTelefone());
 
-            String sql = "UPDATE cliente "
-                    + "SET nome=?, cpf=?, email=?, endereco=?, telefone=? "
+            String sql = "UPDATE cliente SET nome=?, "
+                    + "cpf=?, email=?, endereco=?, telefone=? "
                     + "WHERE codigo=?";
 
             PreparedStatement comando = conexao.prepareStatement(sql);
-            comando.setInt(1, m.getCodigo()); 
-            comando.setString(2, m.getNome());
-            comando.setString(3, m.getCpf());
-            comando.setString(4, m.getEmail());
-            comando.setString(5, m.getEndereco());
-            comando.setString(6, m.getTelefone());
+            comando.setString(1, m.getNome());
+            comando.setString(2, m.getCpf());
+            comando.setString(3, m.getEmail());
+            comando.setString(4, m.getEndereco());
+            comando.setString(5, m.getTelefone());
+            comando.setInt(6, m.getCodigo());
                        
             
             comando.executeUpdate();

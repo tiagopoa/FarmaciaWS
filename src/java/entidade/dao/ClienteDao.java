@@ -6,7 +6,7 @@ import java.util.List;
 public interface ClienteDao {
     public void inserir(Cliente m);
     public void deletar(int codigo);
-    public void atualizar(Cliente m);
+    public void atualizar(int codigo,Cliente m);
     public List<Cliente> listar();
     public Cliente buscarPorId(int codigo);
     

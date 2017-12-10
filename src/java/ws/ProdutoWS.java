@@ -5,8 +5,8 @@
  */
 package ws;
 
-import entidade.Cliente;
-import entidade.dao.ClienteDaoBd;
+import entidade.Produto;
+import entidade.dao.ProdutoDaoBd;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -27,21 +27,21 @@ import javax.ws.rs.core.MediaType;
  *
  * @author 630610194
  */
-@Path("/clientes")
-public class ClienteWS {
+@Path("/produtos")
+public class ProdutoWS {
 
     @Context
     private UriInfo context;
-    static List<Cliente> listaClientes = new ArrayList<>();
+    static List<Produto> listaProdutos = new ArrayList<>();
 
     
-    private ClienteDaoBd clienteDao;
+    private ProdutoDaoBd produtoDao;
     private int codigo;
     /**
      * Creates a new instance of MotorWS
      */
-    public ClienteWS() {
-        clienteDao = new ClienteDaoBd();
+    public ProdutoWS() {
+        produtoDao = new ProdutoDaoBd();
     }
 
     /**
@@ -50,10 +50,10 @@ public class ClienteWS {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Cliente> getCliente() {
+    public List<Produto> getProduto() {
         //return listaClientes;
         //System.out.println("testeListar");
-        return clienteDao.listar();        
+        return produtoDao.listar();        
     }
 
     /**
@@ -62,30 +62,30 @@ public class ClienteWS {
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void inserirCliente(Cliente cliente) {
-        clienteDao.inserir(cliente);
+    public void inserirProduto(Produto produto) {
+        produtoDao.inserir(produto);
     }
     
     @PUT
     @Path("{codigo}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void editarCliente(@PathParam("codigo") int codigo, Cliente cliente) {
-        cliente.setCodigo(codigo);
-        clienteDao.atualizar(codigo,cliente);
+    public void editarProduto(@PathParam("codigo") int codigo, Produto produto) {
+        produto.setCodigo(codigo);
+        produtoDao.atualizar(codigo,produto);
     }
     
     @DELETE
     @Path("/{codigo}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void removerCliente(@PathParam("codigo") int codigo) { 
-        clienteDao.deletar(codigo);
+    public void removerProduto(@PathParam("codigo") int codigo) { 
+        produtoDao.deletar(codigo);
     }
     
     @GET
     @Path("/{codigo}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Cliente buscarPorCodigo(@PathParam("codigo") int codigo) {
-        return clienteDao.buscarPorId(codigo);
+    public Produto buscarPorCodigo(@PathParam("codigo") int codigo) {
+        return produtoDao.buscarPorId(codigo);
     }
     
 }
