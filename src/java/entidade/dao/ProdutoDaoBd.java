@@ -72,8 +72,6 @@ public class ProdutoDaoBd implements ProdutoDao {
         try {
             Connection conexao = ConnectionFactory.getConnection();
             
-            //System.out.println(codigo + " " + m.getNome() + " " + m.getCpf() + " " + m.getEmail() + " " + m.getEndereco() + " " + m.getTelefone());
-
             String sql = "UPDATE produto SET nome=?, "
                     + "preco=?, quantidade=?, fabricante=?, website=?, telfabricante=?, nomevendedor=?, telvendedor=? "
                     + "WHERE codigo=?";
@@ -179,16 +177,6 @@ public class ProdutoDaoBd implements ProdutoDao {
         return null;
     }
 
-
-
-
- 
-//    @Override
-//    public Cliente buscarPorId(int id) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
-  
 
 
 }

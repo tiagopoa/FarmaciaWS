@@ -3,7 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/ConnectionFactory.java</file>
             <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/ws/ApplicationConfig.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/Usuario.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/UsuarioDaoBd.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/ProdutoDaoBd.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/ClienteDao.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/ws/ProdutoWS.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/Produto.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/ClienteDaoBd.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/ws/UsuarioWS.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/ws/ClienteWS.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/Cliente.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/UsuarioDao.java</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/newpackage/banco.sql</file>
+            <file>file:/C:/Users/Tiago/Documents/FarmaciaWS/src/java/entidade/dao/ProdutoDao.java</file>
         </group>
     </open-files>
 </project-private>
